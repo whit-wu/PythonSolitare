@@ -1,6 +1,8 @@
+# Class that prints a board onto the console.
 from Deck import Deck
 class Board(object):
 
+    # A dictionary to store the card values in each board cell
     def __init__(self, deckVars):
         self.theBoard = {'A1': '  ', 'A2': '  ', 'A3': '  ', 'A4': '  ', 'DC': '  ',
                         'B1': '  ', 'B2': '  ', 'B3': '  ', 'B4': '  ',
@@ -12,6 +14,7 @@ class Board(object):
     #             'C1': '  ', 'C2': '  ', 'C3': '  ', 'C4': '  ',
     #             'D1': '  ', 'D2': '  ', 'D3': '  ', 'D4': '  ', 'CC': '  '}
         self.Deck = deckVars
+    # function that prints the board onto the screen. 
     def printBoard(self):
         #self.theBoard['CC'] = Deck.cardDeck[Deck.currentCard]
         boardDeck = Deck()

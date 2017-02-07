@@ -1,3 +1,4 @@
+# class that creates a deck of cards
 import random
 import itertools
 

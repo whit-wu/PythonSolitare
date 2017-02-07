@@ -1,4 +1,4 @@
-# chcp 65001
+# main class.  contains flow control for the game.
 import os
 from Board import Board
 from Rules import Rules
@@ -9,10 +9,13 @@ def main():
     # myDeck = Deck()
     # myBoard.printBoard()
     os.system('cls')
+    
+    # creation of objects
     myDeck = Deck()
     myDeck.createDeck()
     myBoard = Board(myDeck)
 
+    # prints board onto screen
     myBoard.printBoard()
 
     myRules = Rules(myBoard, myDeck)
@@ -21,8 +24,9 @@ def main():
     playGame = True
     gameOver = True
 
+    # while the game is being played...
     while (playGame == True):
-        while (myRules.CheckBoard() == False):
+        while (myRules.CheckBoard() == False): # check if values can be placed onto the board
             print("Insert location to place card")
             move = input()
             move = move.upper()
@@ -35,17 +39,17 @@ def main():
                 # playGame = False
                 break
 
-        pairsRemaining = myRules.PairsLeft()
-        if (myDeck.currentCard > 51):
+        pairsRemaining = myRules.PairsLeft() # check if their are any neighbor pairs that add up to 10 and cards with value of 10
+        if (myDeck.currentCard > 51): # if we use up the deck, break from the loop
             break
-        if (pairsRemaining == False):
-            gameOver = False
+        if (pairsRemaining == False): # if there are no pairs remaining and the board is full, 
+            gameOver = False            # set gameOver to false and break from loop.
             break
 
-        while (pairsRemaining == True):
+        while (pairsRemaining == True):  # while there are pairs neighbor remaining that add up to 10 and cards with value of 10
             # os.system('cls')
             # myBoard.printBoard()
-            print("Enter first card to clear: ")
+            print("Enter first card to clear: ") # prompt user for input on which cards to clear
             cellInput1 = input()
             cellInput1 = cellInput1.upper()
             os.system('cls')
@@ -59,12 +63,12 @@ def main():
             os.system('cls')
             myBoard.printBoard()
         continue
-    if (gameOver == False):
+    if (gameOver == False):  # if this is false, player loses the game
         os.system('cls')
         print("You lose!")
         print("Cards you have played: " + str(myDeck.currentCard))
         # print(myRules.boardVals)
-    elif (gameOver == True):
+    elif (gameOver == True): # if this is true, player wins the game.
         os.system('CLS')
         print("You Win!")
 

@@ -2,7 +2,7 @@
 from Deck import Deck
 class Board(object):
 
-    # A dictionary to store the card values in each board cell
+    # A dictionary to store the card names in each board cell
     def __init__(self, deckVars):
         self.theBoard = {'A1': '  ', 'A2': '  ', 'A3': '  ', 'A4': '  ', 'DC': '  ',
                         'B1': '  ', 'B2': '  ', 'B3': '  ', 'B4': '  ',

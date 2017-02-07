@@ -1,3 +1,4 @@
+# class to dictate the rules of the game.
 from Board import Board
 from Deck import Deck
 import os
@@ -9,6 +10,7 @@ playedCards = 0
 class Rules(object):
 
     def __init__(self,  boarVars, deckVars):
+        # Dictionary to store the values in each cell of the board
         self.boardVals = {'A1': 0, 'A2': 0, 'A3': 0, 'A4': 0,
                      'B1': 0, 'B2': 0, 'B3': 0, 'B4': 0,
                      'C1': 0, 'C2': 0, 'C3': 0, 'C4': 0,
@@ -18,6 +20,7 @@ class Rules(object):
 
 
 
+    # function that moves values to each cell.  Calls upon assignval function to do this.
     def moveValue(self, move):
 
         if self.EntryValidation(move) == True:
@@ -261,6 +264,7 @@ class Rules(object):
             os.system('pause')
             return False
 
+    # checks if user input is valid
     def EntryValidation(self, givenKey):
         keyNames = ['A1', 'A2', 'A3', 'A4', 'B1', 'B2', 'B3', 'B4', 'C1', 'C2', 'C3', 'C4', 'D1', 'D2', 'D3', 'D4', 'N']
         valueExists = False
@@ -272,6 +276,7 @@ class Rules(object):
         else:
             return False
 
+    # checks if cell is available to have card placed in it.
     def CellAvailable(self, givenCell):
 
 
